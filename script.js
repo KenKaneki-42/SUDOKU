@@ -69,9 +69,68 @@ function generateSudoku()
             };
           };
       };
+      grille_complete = true; // condition de fermeture de la boucle while
   };
 
+  //*** Création de la grille ***
+    if (grille_complete)
+  {
+    //+ Jonas Raoni Soares Silva
+    //@ http://jsfromhell.com/array/shuffle [rev. #1]
+    function shuffle(array)
+    {
+        for(var j, x, i = array.length; i; j = parseInt(Math.random() * i), x = array[--i], array* = array[j], array[j] = x);
+        return array;
+    };
 
+    var cases_a_vider = new Array();
+
+    for (var i = 1; i <= 81; i++)
+    {
+        if (i <= nb_case_vide) cases_a_vider* = true;
+        else cases_a_vider* = false;
+    }
+
+    cases_a_vider = shuffle(cases_a_vider);
+  }
+  else
+  {
+      var today = new Date;
+
+      document.getElementById("resultat").style.display = 'none';
+      document.getElementById("erreur").style.display = 'block';
+      document.getElementById("erreur").innerHTML = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " : Echec apr&egrave;s " + nb_max_loop + " tentatives.";
+  }
+
+  // *** afficher le résultat sous forme de tableaux ***
+  var html = "<table cellpadding='0'><tbody>";
+  var html_enonce = "<table cellpadding='0'><tbody>";
+  var count = 0;
+
+  for (var y = 1; y <= 9; y++)
+  {
+      html += "<tr>";
+      html_enonce += "<tr>";
+
+      for (var x = 1; x <= 9; x++)
+      {
+          count++;
+
+          html += "<td>" + ((cases_a_vider[count]) ? '<span class="red">' + grille[y][x] + '</span>' : grille[y][x]) + "</td>";
+          html_enonce += "<td" + ((cases_a_vider[count]) ? ' class="vide">&nbsp;' : '>' + grille[y][x]) + "</td>";
+      };
+
+      html += "</tr>";
+      html_enonce += "</tr>";
+  };
+
+  html += "</tbody></table>";
+  html_enonce += "</tbody></table>";
+
+  document.getElementById("grille_a_faire").innerHTML = html_enonce;
+  document.getElementById("grille_solution").innerHTML = html;
+  document.getElementById("resultat").style.display = 'block';
+document.getElementById("erreur").style.display = 'none';
 
 };
 
