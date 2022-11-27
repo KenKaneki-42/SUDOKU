@@ -1,6 +1,6 @@
 function generateSudoku()
 {
-  // *** Iniatilisation et configuration ***
+  console.log('Iniatilisation et configuration');
   // récupérer le nombre de cases à cacher en fonction du niveau
   var nb_case_vide = document.getElementById("niveau").value;
   // nombre maximal d'essais à faire
@@ -20,19 +20,19 @@ function generateSudoku()
   {
       i_while++; // On ajoute 1 à la boucle
       // ...
-      // *** Initialisation des tableaux ***
+      console.log('Initialisation des tableaux');
       for (var i = 1; i <= 9; i++)
       {
-          grille[i] = new Array(); // On crée chaque ligne de la grille
-          lignes[i] = new Array(); // On crée un array pour les lignes
-          colonnes[i] = new Array(); // On crée un array pour les colonnes
+        grille[i] = new Array(); // On crée chaque ligne de la grille
+        lignes[i] = new Array(); // On crée un array pour les lignes
+        colonnes[i] = new Array(); // On crée un array pour les colonnes
 
-          for (var j = 1; j <= 9; j++)
-          {
-              grille[i][j] = 0; // On passe toutes les cases à 0
-              lignes[i][j] = j; // On complète toutes les possibilités de la ligne
-              colonnes[i][j] = j; // On complète toutes les possibilités de la colonne
-          };
+        for (var j = 1; j <= 9; j++)
+        {
+            grille[i][j] = 0; // On passe toutes les cases à 0
+            lignes[i][j] = j; // On complète toutes les possibilités de la ligne
+            colonnes[i][j] = j; // On complète toutes les possibilités de la colonne
+        };
       };
 
       for (var i = 1; i <= 3; i++)
@@ -69,26 +69,53 @@ function generateSudoku()
             };
           };
       };
+      console.log(possibilites);
+      if (possibilites.length == 0) continue outerwhile;
+
+      var nb = possibilites[Math.floor((Math.random() * possibilites.length))];
+      grille[y][x] = nb;
+      lignes[y][nb] = undefined;
+      colonnes[x][nb] = undefined;
+      carres[Math.ceil(y/3)][Math.ceil(x/3)][nb] = undefined;
       grille_complete = true; // condition de fermeture de la boucle while
   };
 
-  //*** Création de la grille ***
+  console.log('Création de la grille');
     if (grille_complete)
   {
+    // fonction shuffle 1
     //+ Jonas Raoni Soares Silva
     //@ http://jsfromhell.com/array/shuffle [rev. #1]
+    console.log('grille complète');
+
     function shuffle(array)
     {
-        for(var j, x, i = array.length; i; j = parseInt(Math.random() * i), x = array[--i], array* = array[j], array[j] = x);
+        for(var j, x, i = array.length; i; j = parseInt(Math.random() * i), x = array[--i], array = array[j], array[j] = x);
+        console.log( " valeur de l'array shufflé: "+ array);
+        console.log(array);
         return array;
     };
+    
+    // function shuffle(array) {
+    //   for (var i = array.length - 1; i > 0; i--) {
+
+    //       // Generate random number
+    //       var j = Math.floor(Math.random() * (i + 1));
+    //       var temp = array[i];
+    //       array[i] = array[j];
+    //       array[j] = temp;
+    //   }
+    //   return array;
+    //   console.log(array);
+    // }
+
 
     var cases_a_vider = new Array();
 
     for (var i = 1; i <= 81; i++)
     {
-        if (i <= nb_case_vide) cases_a_vider* = true;
-        else cases_a_vider* = false;
+        if (i <= nb_case_vide) cases_a_vider = true;
+        else cases_a_vider = false;
     }
 
     cases_a_vider = shuffle(cases_a_vider);
@@ -130,9 +157,11 @@ function generateSudoku()
   document.getElementById("grille_a_faire").innerHTML = html_enonce;
   document.getElementById("grille_solution").innerHTML = html;
   document.getElementById("resultat").style.display = 'block';
-document.getElementById("erreur").style.display = 'none';
+  document.getElementById("erreur").style.display = 'none';
 
 };
+
+
 
 function AjoutOptionAuSelect(this_select)
 {
@@ -153,9 +182,9 @@ function AjoutOptionAuSelect(this_select)
 
         for (var i=0; i < this_select.options.length; i++)
         {
-            if (this_select.options*.value == saisie)
+            if (this_select.options.value == saisie)
             {
-                this_select.options*.selected = true;
+                this_select.options.selected = true;
             }
         }
     }
