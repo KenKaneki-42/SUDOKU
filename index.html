@@ -8,20 +8,24 @@
   <meta charset="utf-8">
   <title>Titre de la page</title> <!-- mettez un titre significatif-->
   <link rel="stylesheet" href="style.css"> <!-- Utilisez le chemain relatif au fichier CSS-->
-  <script src="script.js"></script> <!-- Ligne à envelver s'il n'y a pas de script-->
+  <script src="script.js">
+    console.log('Iniatilisation et configuration');
+  </script> <!-- Ligne à envelver s'il n'y a pas de script-->
 </head>
 <body>
   ...
   <!-- Contenu  de la page -->
-  <label for="level">Choose your level</label>
-  <select id="level" name="type" onchange="AjoutOptionAuSelect(this);">
+  <h1 class="red">SUDOKU </h1>
+  <label for="niveau">Choisi ton niveau</label>
+  <select id="niveau" name="type" onchange="AjoutOptionAuSelect(this);">
     <option value="20">Facile (20 cases vides)</option>
     <option value="30" selected>Normal (30 cases vides)</option>
     <option value="40">Expert (40 cases vides)</option>
     <option value="autre">Personnalisé</option>
 </select>
 
-<a href="javascript:generateSudoku(); return false;">Générer</a>
+<!-- <a href="javascript:generateSudoku(); return false;">Générer</a> -->
+<a href="javascript:generateSudoku();">Générer</a>
 
 <div id="erreur" style="display: none"></div>
 <div id="resultat">
