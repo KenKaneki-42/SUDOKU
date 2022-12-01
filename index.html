@@ -2,20 +2,20 @@
 <html lang="fr">
 <head>
   <!-- Google result text-->
-  <title>Joue au Sudoku facilement | meilleur suoduku en ligne</title>
+  <title>Joue au Sudoku facilement | meilleur suoduku en ligne</title><!-- mettez un titre significatif-->
   <!-- Google result description-->
   <meta name="description" content="Le Sudoku est un super jeu pour travailler sa réflexion et sa stratégie. C'est aussi un super jeu pour se détendre. Avec ce sudoku en ligne, parcours les différents niveaux, gagne des niveaux et devient un maître du sudoku!">
   <meta charset="utf-8">
-  <title>Titre de la page</title> <!-- mettez un titre significatif-->
+  <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no">
   <link rel="stylesheet" href="style.css"> <!-- Utilisez le chemain relatif au fichier CSS-->
-  <script src="script.js">
-    console.log('Iniatilisation et configuration');
-  </script> <!-- Ligne à envelver s'il n'y a pas de script-->
+  <script src="script.js"></script> <!-- Ligne à envelver s'il n'y a pas de script-->
 </head>
 <body>
   ...
   <!-- Contenu  de la page -->
-  <h1 class="red">SUDOKU </h1>
+  <h1>SUDOKU </h1>
+  <h2 id="errors">0</h2>
+  <!-- Choix du niveau -->
   <label for="niveau">Choisi ton niveau</label>
   <select id="niveau" name="type" onchange="AjoutOptionAuSelect(this);">
     <option value="20">Facile (20 cases vides)</option>
@@ -24,6 +24,7 @@
     <option value="autre">Personnalisé</option>
 </select>
 
+<!-- Génération du tableau 9x9 -->
 <!-- <a href="javascript:generateSudoku(); return false;">Générer</a> -->
 <a href="javascript:generateSudoku();">Générer</a>
 
@@ -35,6 +36,19 @@
     <h2>Solution</h2>
     <div id="grille_solution"></div>
 </div>
-  ...
+
+ <div class="separateur"></div>
+
+
+
+
+
+  <!-- version avec un tableau prédéfénis -->
+  <!-- 9x9 board -->
+  <div id="board">
+  </div>
+  <br>
+  <div id="digits">
+  </div>
 </body>
 </html>
