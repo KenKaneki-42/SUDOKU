@@ -8,46 +8,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no">
   <link rel="stylesheet" href="style.css"> <!-- Utilisez le chemain relatif au fichier CSS-->
-  <script src="script.js"></script> <!-- Ligne à envelver s'il n'y a pas de script-->
+  <!-- pour lien avec sudoku.js -->
+  <script src="sudoku.js"></script>
 </head>
 <body>
-  ...
   <!-- Contenu  de la page -->
   <h1>SUDOKU </h1>
+  <hr>
   <h2 id="errors">0</h2>
-  <!-- Choix du niveau -->
-  <label for="niveau">Choisi ton niveau</label>
-  <select id="niveau" name="type" onchange="AjoutOptionAuSelect(this);">
-    <option value="20">Facile (20 cases vides)</option>
-    <option value="30" selected>Normal (30 cases vides)</option>
-    <option value="40">Expert (40 cases vides)</option>
-    <option value="autre">Personnalisé</option>
-</select>
-
-<!-- Génération du tableau 9x9 -->
-<!-- <a href="javascript:generateSudoku(); return false;">Générer</a> -->
-<a href="javascript:generateSudoku();">Générer</a>
-
-<div id="erreur" style="display: none"></div>
-<div id="resultat">
-    <h2>Base</h2>
-    <div id="grille_a_faire"></div>
-
-    <h2>Solution</h2>
-    <div id="grille_solution"></div>
-</div>
-
- <div class="separateur"></div>
-
-
-
-
 
   <!-- version avec un tableau prédéfénis -->
   <!-- 9x9 board -->
   <div id="board">
   </div>
+
   <br>
+
   <div id="digits">
   </div>
 </body>
