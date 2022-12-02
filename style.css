@@ -26,7 +26,6 @@ hr{
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  background-color: yellow;
 }
 
 .tile{
@@ -49,13 +48,13 @@ hr{
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  background-color: yellow;
 }
 
 .number{
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border: 1px solid black;
+  margin: 2px;
 
   /* Text */
   font-size: 20px;
@@ -64,3 +63,8 @@ hr{
   justify-content: center;
   align-items: center;
 }
+
+.number-selected{
+  background-color: grey;
+}
+

@@ -2,11 +2,13 @@ function generateSudoku()
 {
   console.log('Iniatilisation et configuration');
   // récupérer le nombre de cases à cacher en fonction du niveau
-  var nb_case_vide = document.getElementById("niveau").value;
+  const nb_case_vide = document.getElementById("niveau").value;
+  console.log("nb_case_vide:" + nb_case_vide);
   // nombre maximal d'essais à faire
-  var nb_max_loop = 1000;
+  const nb_max_loop = 1000;
 
   //Décalaration de variables
+
   var grille = new Array();
   var lignes = new Array();
   var colonnes = new Array();
@@ -95,7 +97,7 @@ function generateSudoku()
         console.log(array);
         return array;
     };
-    
+
     // function shuffle(array) {
     //   for (var i = array.length - 1; i > 0; i--) {
 
