@@ -68,3 +68,14 @@ hr{
   background-color: grey;
 }
 
+.tile-start{
+  background-color: whitesmoke;
+}
+
+.horizontal-ligne{
+  border-bottom: 1px solid black;
+}
+
+.vertical-ligne{
+  border-right: 1px solid black;
+}
