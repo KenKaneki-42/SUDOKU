@@ -84,7 +84,6 @@ function setGame(){
 // étudier "les promesses" pour faire de l'asychrone proprement
 
 // const num = document.getElementsByClassName("number");
-//console.log(num);
 
 //fonction pour griser le chiffre séléctionné
 function selectNumber(){
